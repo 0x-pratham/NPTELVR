@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Virtual Reality – NPTEL Practice Assessment</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1b1f2a;--mu:#667;--bd:#d9dce6;--ac:#3b5bdb;--ok:#1f9d55;--okb:#e3f6ea;--no:#d33;--nob:#fde8e8}
+@media(prefers-color-scheme:dark){:root{--bg:#12141c;--card:#1c1f2b;--tx:#e8eaf2;--mu:#9aa0b4;--bd:#323750;--ac:#7c97ff;--ok:#4cd388;--okb:#12301f;--no:#ff7b7b;--nob:#3a1a1a}}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--tx);line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding:20px 14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px;margin-bottom:14px}
+h1{font-size:1.4rem;margin:0 0 4px}.mu{color:var(--mu);font-size:.9rem}
+select,button{font:inherit;padding:10px 14px;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--tx)}
+button.p{background:var(--ac);color:#fff;border-color:var(--ac);cursor:pointer}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.bar{height:6px;background:var(--bd);border-radius:4px;overflow:hidden;margin:8px 0 14px}.bar i{display:block;height:100%;background:var(--ac)}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--ac)}
+.opt.ok{background:var(--okb);border-color:var(--ok)}.opt.no{background:var(--nob);border-color:var(--no)}
+.exp{margin-top:12px;padding:12px;border-radius:8px;background:var(--bg);border-left:4px solid var(--ac)}
+.tag{font-size:.75rem;background:var(--bg);border:1px solid var(--bd);border-radius:20px;padding:2px 10px}
+.big{font-size:2.4rem;font-weight:700}.hide{display:none}
+</style></head><body><div class="wrap">
+<div id="home" class="card">
+ <h1>Virtual Reality – NPTEL Practice Assessment</h1>
+ <p class="mu">Exam-style MCQs by week. The correct answer and explanation appear the moment you pick an option.</p>
+ <div class="row"><select id="wk"></select>
+ <select id="cnt"><option value="10">10 questions</option><option value="20">20 questions</option><option value="all" selected>All</option></select>
+ <button class="p" onclick="start()">Start</button></div>
+</div>
+<div id="quiz" class="card hide">
+ <div class="row" style="justify-content:space-between;margin:0"><span class="tag" id="wtag"></span><span class="mu" id="prog"></span></div>
+ <div class="bar"><i id="fill"></i></div>
+ <h2 id="q" style="font-size:1.1rem"></h2><div id="opts"></div>
+ <div id="exp" class="exp hide"></div>
+ <div class="row"><button class="p hide" id="next" onclick="next()">Next →</button><span class="mu" id="sc"></span></div>
+</div>
+<div id="end" class="card hide"><div class="big" id="final"></div><p id="msg" class="mu"></p>
+ <div id="review"></div><div class="row"><button class="p" onclick="start()">Retry</button><button onclick="home()">Change topic</button></div></div>
+</div><script src="questions.js"></script><script src="app.js"></script></body></html>
